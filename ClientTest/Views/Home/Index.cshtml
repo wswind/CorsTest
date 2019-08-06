@@ -14,7 +14,7 @@
 
 <div>
     <input type="button" value="Test"
-           onclick="requestVal('http://localhost:5001/swagger/index.html')" />
+           onclick="requestVal('http://localhost:5000/api/values')" />
     <span id='result'></span>
 </div>
 
@@ -23,8 +23,11 @@
         const resultSpan = document.getElementById('result');
 
         fetch(uri)
-            .then(response => console.log(response))
-            .then(data => resultSpan.innerText = data)
-            .catch(error => resultSpan.innerText = 'See F12 Console for error');
+            .then(
+                response => response)
+            .then(
+                data => resultSpan.innerText = data.statusText)
+            .catch(
+                error => resultSpan.innerText = 'See F12 Console for error');
     }
 </script>
